@@ -1,0 +1,21 @@
+*{margin: 0; padding: 0;box-sizing: border-box;}
+body{background: black;color: white;font-family: Arial;}
+
+.nav{background-color: red;}
+.navicon{width: 20px;}
+
+.navcontainer{
+    width: 90%;
+    margin: 0 auto;
+    height: 70px;
+
+    display: grid;
+    grid-template-columns: max-content max-content;
+    grid-template-areas: "title img";
+    justify-content: space-between;
+    align-items: center;
+}
+.navtitle{
+    color: black;
+    grid-area: title;
+}
