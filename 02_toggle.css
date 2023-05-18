@@ -1,0 +1,22 @@
+.expandable {
+    height: 0;
+    overflow: hidden;
+    background: black;
+    color: white;
+    transition: 200ms height ease-in-out;
+}
+
+.expandable.open {
+    height: auto;
+}
+
+.wrapper{
+    display: grid;
+    grid-template-rows: 0fr;
+    overflow: hidden;
+    transition: grid-template-rows 200ms;
+}
+
+.wrapper.open {
+    grid-template-rows: 1fr;
+}
