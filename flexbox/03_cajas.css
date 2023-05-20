@@ -1,0 +1,26 @@
+body{
+    text-align: center;
+    background-color: black;
+    color: grey;
+}
+.contenedor-flex{
+    border: solid 2px grey;
+    margin: 0 auto;
+    margin-bottom: 40px;
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3em;
+    /* justify-content: center; */
+}
+.item{
+    border: solid 2px rgb(94, 95, 8);
+    flex-grow: 1;
+    width: 300px;
+    height: 100px;
+    background-color: rgb(8, 33, 104);
+}
+.item-2{
+    width: 500px;
+    background-color: rgb(57, 8, 104);
+}

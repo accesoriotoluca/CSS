@@ -1,0 +1,114 @@
+*{margin: 0; box-sizing: border-box;}
+body{/* background-color: black; */ font-family: 'Roboto', sans-serif;}
+.contenedor{
+    /* border: solid 1px rgb(255, 255, 255); */
+    margin: 0 auto;
+    width: 90%;
+    max-width: 1200px;
+    overflow: hidden;
+}
+.header{
+    /* border: solid 1px red; */
+    background-image: 
+    linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.2)),
+    url('paisaje.jpeg');
+    background-size: cover;
+    min-height: 500px;
+    height: 100vh;
+    color: #fff;
+}
+.nav{
+    /* border: solid 1px darkblue; */
+    --close: scale(0);
+    --menu: scale(1);
+    --fondo: translate(-100%);
+
+    padding: 40px 0;
+    display: grid;
+    justify-content: space-between;
+    align-items: center;
+    grid-template-columns: repeat(2,max-content);
+}
+.nav:target{
+    /*boton dirige a url, si id d etiqueta con clase nav = url[fragmento] */
+    --fondo: translate(0);
+    --close: scale(1);
+    --menu: scale(0);
+}
+.titulo{
+    font-size: 2.5rem;
+    z-index: 1;
+}
+.menu, .close{
+    /* border: solid 1px yellow; */
+    cursor: pointer;
+    grid-column: -2/-1;
+    grid-row: 1/2;
+    transition: .4s transform;
+}
+.menu{
+    transform: var(--menu);
+}
+.close{
+    transform: var(--close);
+}
+.icon{
+    width: 40px;
+}
+.fondo-nav{
+    /* border: solid 5px pink; */
+    background-color: #000;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0;
+
+    display: grid;
+    align-content: center;
+    gap: 2em;
+    padding-left: 5%;
+
+    transform: var(--fondo);
+    transition: .3s transform;
+}
+.item{
+    list-style: none;
+}
+.link{
+    /* border: solid 1px white; */
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+}
+.titulo{
+    /* border: solid 1px purple; */
+    color: #fff;
+    font-size: 2.5rem;
+    z-index: 1;
+}
+@media (min-width:768px){
+    .nav{
+        --menu: scale(0);
+        --fondo: translate(0);
+    }
+    .nav:target{
+        --close: scale(0);
+    }
+    .fondo-nav{
+        padding: 0;
+        background-color: unset;
+        position: unset;
+        gap: 1.5em;
+        grid-auto-flow: column;
+        transform: unset;
+        grid-column: -2/-1;
+        grid-row: 1/2;        
+    }
+    .link{
+        font-size: 1rem;
+        letter-spacing: none;
+    }
+}

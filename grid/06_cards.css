@@ -1,0 +1,77 @@
+body{
+    background-color: rgb(255, 255, 255);
+    color: rgb(80, 79, 79);
+}
+*{margin: 0;}
+.card__container{
+    /* border: solid 1px red; */
+    margin: 80px auto;
+    width: 95%;
+    text-align: left;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4,1fr);
+    grid-template-areas: "card1" "card2" "card3" "card4";
+
+    justify-items: center;
+    gap: 2.5em;
+}
+.card__item{
+    /* border: solid 1px red; */
+    width: 90%;
+    max-width: 550px;
+    padding: 1.5em 1.7em;
+    border-radius: 6px;
+    box-shadow: 0px 4px 20px -6px hsl(212, 86%, 64%, .5);
+    border-top: 4px solid cyan;
+
+    grid-area: card1;
+}
+.card__item:nth-child(2){
+    /* border: solid 1px red; */
+    grid-area: card2;
+    border-top: 4px solid red;
+}
+.card__item:nth-child(3){
+    grid-area: card3;
+    border-top: 4px solid orange;
+}
+.card__item:nth-child(4){
+    grid-area: card4;
+    border-top: 4px solid blue;
+}
+.card__name{
+    /* border: solid 1px red; */
+    font-family: arial;
+    font-size: 1.8rem;
+    margin: 25px 0;
+}
+.card__copy{
+    /* border: solid 1px red; */
+    font-family: Calibri;
+    font-size: 1.4rem;
+    font-weight: 200;
+    padding-bottom: 40px;
+}
+.card__picture{
+    /* border: solid 1px red; */
+    width: max-content;
+    margin-left: auto;
+}
+.card__img{
+    /* border: solid 1px red; */
+    display: block;
+    width: 50px;
+}
+@media (min-width:768px){
+    .card__container{
+        grid-template-columns: repeat(3,1fr);
+        grid-template-areas: 
+        ". card1 ."
+        "card2 card1 card3"
+        "card2 card4 card3"
+        ". card4 .";
+        gap: 2em;
+    }
+}

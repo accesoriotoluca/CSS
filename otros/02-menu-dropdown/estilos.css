@@ -1,0 +1,111 @@
+*{margin: 0; padding: 0;box-sizing: border-box;}
+body{background: black;color: white;font-family: Arial;}
+.nav{
+    background-color: red;
+    --mostrar-icono: scale(1);
+    --ocultar-icono: scale(0);
+}
+/*
+^ :has
+buscar elemento hijo
+^ :target
+activa al hacer clic*/
+.nav:has(.fondo:target) {
+    --mostrar-icono: scale(0);
+    --ocultar-icono: scale(1);
+    --fondo: inset(0 0 0 0);
+}
+.contenedor{
+    width: 90%;
+    margin: 0 auto;
+    height: 70px;
+    display: grid;
+    grid-template-columns: max-content max-content;
+    grid-template-areas: "title img";
+    justify-content: space-between;
+    align-items: center;
+}
+.titulo{
+    color: black;
+    grid-area: title;
+}
+.iconos{
+    grid-area: img;
+    position: relative;
+    z-index: 10;
+    transform: var(--mostrar-icono);
+}
+.icono{
+    width: 20px;
+    display: block;
+}
+.close{
+    transform: var(--ocultar-icono);
+}
+.fondo{
+    position: absolute;
+    background-color: purple;
+    width: 75%;
+    max-width: 300px;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    padding: 1em;
+    display: grid;
+    align-content: center;
+    gap: 1rem;
+    overflow-y: auto;
+    clip-path: var(--fondo,inset(0 0 0 100%));
+    transition: clip-path .5s;
+}
+.list{
+    list-style: none;
+}
+.list:has(:checked){
+    --proyectos: 1fr;
+    --rotate: rotate(180deg);
+    --purple: #680068;
+}
+.link{
+    color: black;
+    padding: 1em .7em;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+    position: relative;
+    background-color: var(--purple, transparent);
+    border-radius: 9px;
+}
+.checkbox{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+.div-proyectos{
+    display: grid;
+    grid-template-rows: var(--proyectos, 0fr);
+    transition: .3s grid-template-rows;
+}
+.ul-proyectos{
+    overflow: hidden;
+}
+.li-proyectos{
+    width: 85%;
+    list-style: none;
+    margin-left: auto;
+}
+.a-proyectos{
+    padding: 1em 0;
+    display: block;
+    color: black;
+    text-decoration: none;
+}
+.iconos-lista{width: 25px;}
+.arrow{
+    margin-left: auto;
+    transform: var(--rotate,0);
+    width: 13px;
+}
